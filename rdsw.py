@@ -20,20 +20,20 @@ def main():
             database.append(data)
 
     # give the average over all entries:
-    crt = 0
-    hst = 0
-    int = 0
-    mst = 0
-    vrs = 0
-    for entry in database:
-        crt += entry["CRT"]
-        hst += entry["HST"]
-        int += entry["INT"]
-        mst += entry["MST"]
-        vrs += entry["VRS"]
-    print(
-        '( Pawn: v1: "Resto-RDSW_all": CritRating={}, MasteryRating={}, HasteRating={}, Intellect={}, Versatility={} )'
-            .format(round(crt / len(database), 2), round(mst / len(database), 2), round(hst / len(database), 2), round(int / len(database), 2), round(vrs / len(database), 2)))
+    # crt = 0
+    # hst = 0
+    # int = 0
+    # mst = 0
+    # vrs = 0
+    # for entry in database:
+    #     crt += entry["CRT"]
+    #     hst += entry["HST"]
+    #     int += entry["INT"]
+    #     mst += entry["MST"]
+    #     vrs += entry["VRS"]
+    # print(
+    #     '( Pawn: v1: "Resto-RDSW_all": CritRating={}, MasteryRating={}, HasteRating={}, Intellect={}, Versatility={} )'
+    #         .format(round(crt / len(database), 2), round(mst / len(database), 2), round(hst / len(database), 2), round(int / len(database), 2), round(vrs / len(database), 2)))
 
     # give the average over the last 10
     crt = 0
@@ -68,6 +68,10 @@ def main():
     print(
         '( Pawn: v1: "Resto-RDSW_last5": CritRating={}, MasteryRating={}, HasteRating={}, Intellect={}, Versatility={} )'
             .format(round(crt / 5, 2), round(mst / 5, 2), round(hst / 5, 2), round(int / 5, 2), round(vrs / 5, 2)))
+    # and just the last one
+    print(
+        '( Pawn: v1: "Resto-RDSW_last": CritRating={}, MasteryRating={}, HasteRating={}, Intellect={}, Versatility={} )'
+            .format(round(database[-1]["CRT"], 2), round(database[-1]["MST"], 2), round(database[-1]["HST"], 2), round(database[-1]["INT"], 2), round(database[-1]["VRS"], 2)))
 
 if __name__ == "__main__":
     main()
